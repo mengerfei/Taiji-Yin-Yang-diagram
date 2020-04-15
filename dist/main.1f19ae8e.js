@@ -120,6 +120,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"main.js":[function(require,module,exports) {
 var html = document.querySelector("#html");
 var style = document.querySelector("#style");
+var divWrapper = document.querySelector("#div1Wrapper");
+var div = document.querySelector("#div1");
 var string2 = "";
 var n = 0;
 var string = "\n/*\u4F60\u597D,\u6211\u53EB\u5C0F\u5929\n *\u662F\u4E00\u4E2A\u524D\u7AEF\u5F00\u53D1\u5B66\u4E60\u8005\n *\u63A5\u4E0B\u6765\u6211\u6F14\u793A\u4E00\u4E0B\u6211\u7684\u524D\u7AEF\u529F\u5E95\n *\u9996\u5148\u6211\u4EEC\u6765\u753B\u4E00\u4E2Adiv\n */\n#div1{\n    border:1px  solid red;\n    width:200px;\n    height:200px;\n}\n/*\u63A5\u4E0B\u6765\uFF0C\u5C06div\u6539\u9020\u6210\u4E00\u4E2A\u516B\u5366\u56FE\n *\u6CE8\u610F\u770B\u597D\u4E86\n *\u9996\u5148\u5C06div\u53D8\u6210\u4E00\u4E2A\u5706\n*/\n#div1 {\n  border-radius: 50%;\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);\n  border: none;\n}\n/* \u516B\u5366\u662F\u9634\u9633\u5F62\u6210\u7684\n*  \u4E00\u9ED1\u4E00\u767D\n*/\n#div1{\n  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n/*\u63A5\u4E0B\u6765\u8D4B\u9634\u9633\u56FE\u4EE5\u53CC\u9C7C*/\n#div1::before{\n  width:100px;\n  height:100px;\n  top:0;\n  left:50%;\n  transform:translateX(-50%);\n  background:#000;\n  border-radius:50%;\n  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#div1::after{\n  width:100px;\n  height:100px;\n  bottom:0;\n  left:50%;\n  transform:translateX(-50%);\n  background:#fff;\n  border-radius:50%;\n  background: radial-gradient(circle, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%);\n}\n\n\n\n\n"; //string = string.replace(/\n/g, "<br>");
@@ -140,6 +142,7 @@ var step = function step() {
     style.innerHTML = string.substring(0, n);
     window.scrollTo(0, 99999);
     html.scrollTo(0, 999999);
+    document.body.clientWidth >= 800 ? divWrapper.style.height = document.body.clientWidth / 2 : divWrapper.style.height = 50 + "vh";
 
     if (n < string.length - 1) {
       //如果n不是最后一个，就继续

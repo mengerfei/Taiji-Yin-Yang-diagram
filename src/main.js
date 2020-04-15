@@ -1,5 +1,7 @@
 let html = document.querySelector("#html");
 let style = document.querySelector("#style");
+let divWrapper = document.querySelector("#div1Wrapper");
+let div = document.querySelector("#div1");
 let string2 = "";
 let n = 0;
 let string = `
@@ -72,6 +74,10 @@ let step = () => {
     style.innerHTML = string.substring(0, n);
     window.scrollTo(0, 99999);
     html.scrollTo(0, 999999);
+    document.body.clientWidth >= 800
+      ? (divWrapper.style.height = document.body.clientWidth / 2)
+      : (divWrapper.style.height = 50 + "vh");
+
     if (n < string.length - 1) {
       //如果n不是最后一个，就继续
       // step(); //setInterval
